@@ -5,8 +5,8 @@ export const Statistics = ({ grades, total, positivePercentage }) => {
   return (
     <>
       <StyledUl>
-        {grades.map(([key, value]) => (
-          <StyledLi key={key}>
+        {Object.entries(grades).map(([key, value]) => (
+          <StyledLi key={crypto.randomUUID()}>
             {key}: {value}
           </StyledLi>
         ))}
@@ -18,7 +18,7 @@ export const Statistics = ({ grades, total, positivePercentage }) => {
 };
 
 Statistics.propTypes = {
-  grades: PropTypes.arrayOf(PropTypes.array.isRequired).isRequired,
+  grades: PropTypes.object.isRequired,
   total: PropTypes.func.isRequired,
   positivePercentage: PropTypes.func.isRequired,
 };
